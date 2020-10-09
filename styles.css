@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Press Start 2P';
+}
+h1 {
+    font-size: 40px;
+    text-align: left;
+    margin: 1em 2em;
+}
+body h2 {
+    font-size: 18px;
+    margin: 2em;
+}
+/* #choose-pokemon { (this affects the body h2, makes it 4em)
+    margin: 2em;
+} */
+#pokemon-select {
+    /* font-size: 16px; */
+    width: fit-content;
+    padding: 1em 2em;
+    border: 3px;
+    border-style: solid;
+    margin: 1em 8em;
+}
+
+/* script1 to pokemon battle? or separate divs for battles? */

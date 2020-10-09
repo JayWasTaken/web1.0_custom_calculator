@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pokemon Battle</title>
+        <link rel="stylesheet" href="styles.css">
+        <link href='https://fonts.googleapis.com/css?family=Press Start 2P' rel='stylesheet'>
+
+    </head>
+    <body>
+        <section id="enemy-pokemon">
+            <h1>A wild Shinx appeared!</h1>
+            <!-- background image of some fuckin field maybe -->
+        </section>
+
+        <form id="display">
+            <section id="choose-pokemon">
+                <div id="display"></div>
+                <h2>Choose your Pokemon:</h2>
+                <select id="pokemon-select">
+                    <option value="turtwig">Turtwig</option>
+                    <option value="chimchar">Chimchar</option>
+                    <option value="piplup">Piplup</option>
+                </select>
+            </section>
+            <!-- needs to be in loop with each pokemon to display the limit health, since they have diff hp -->
+            <section id="current-health">
+                <h2>What is your pokemon's current health?</h2>
+            </section>
+
+            <section id="display-pokemon">
+                <img src="images/Spr_b_4d_387.webp">
+                <img src="images/Spr_b_4d_390.webp">
+                <img src="images/Spr_b_4d_393.webp">
+                <a href="http://pokemondb.net/pokedex/shinx"><img src="https://img.pokemondb.net/sprites/x-y/normal/shinx-f.png" alt="Shinx"></a>
+            </section>
+
+            <section id="battle-choice">
+                <select id="move-choice">
+
+                    <!-- move options go here -->
+                </select>
+            </section>
+            <h1>Tons of Damage</h1>
+            
+        </form>
+        
+
+        <script src="script.js"></script>
+    </body>
+</html>
