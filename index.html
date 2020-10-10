@@ -25,6 +25,11 @@
             <!-- needs to be in loop with each pokemon to display the limit health, since they have diff hp -->
             <section id="current-health">
                 <h2>What is your pokemon's current health?</h2>
+                <!-- Added health input ~Ant -->
+                <h3 id="health">0hp</h3>
+                <!-- added shinx health -->
+                <h2>Shinx Health</h2>
+                <h3 id="shinx-health">0hp</h3>
             </section>
 
             <section id="display-pokemon">
@@ -39,6 +44,8 @@
 
                     <!-- move options go here -->
                 </select>
+                <!-- Added button so that players can submit their attack option -->
+                <button type="button" onclick="attack()">Attack!</button>
             </section>
             <h1>Tons of Damage</h1>
             
