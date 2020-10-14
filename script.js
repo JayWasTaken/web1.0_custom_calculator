@@ -20,7 +20,10 @@ const shinx = {
     name: "Shinx",
     hp: 45,
     attack: 65,
-    defense: 34
+    defense: 34,
+    // added moves just to make things more simple
+    scratch: 40,
+    bite: 60,
 }
 // can put these in a separate js file called data.js, once there you can export
 // 
@@ -63,10 +66,13 @@ const shinxMoves = {
 
 // console.log(moveSet["turtwig"])
 const pokemonSelect = document.querySelector("#pokemon-select")
+const health = document.querySelector("#health"); // added health value
+const shinxHealth = document.querySelector("#shinx-health"); // added shinx health
 const moveSelect = document.querySelector("#move-choice")
 
 pokemonSelect.addEventListener('change', foo)
-
+// sets pokeHealth
+let pokeHealth = 0
 
 function foo() {
     // console.log(pokemonSelect.value)
@@ -77,6 +83,20 @@ function foo() {
         console.log(move)
         options += `<option value="${move}">${move}</option>`
     }
+    // sets hp 
+    if (s == "turtwig") {
+        pokeHealth = turtwig.hp
+        health.innerHTML = pokeHealth
+    } else if (s == "chimchar") {
+        pokeHealth = chimchar.hp
+        health.innerHTML = pokeHealth
+    } else {
+        pokeHealth = piplup.hp
+        health.innerHTML = pokeHealth
+    }
+    shinx.hp = 45
+    shinxHealth.innerHTML = parseInt(shinx.hp)
+    
     moveSelect.innerHTML = options
     const moveOptions = moveSelect.querySelectorAll("option")
     console.log(options)
@@ -107,3 +127,44 @@ foo()//makes it log before selecting stuff
 //         break;
 // }
 
+// onclick function
+function attack(){
+    // this is the fighting stage
+    while (0 < shinx.hp & 0 < pokeHealth) {
+        // lets shinx make a random move
+        use = Math.random()
+        if (use < 0.5) {
+            defend = shinx.scratch
+        } else {
+            defend = shinx.bite
+        }
+        // displays and adjusts our health
+        pokeHealth -= defend
+        health.innerHTML = pokeHealth
+        // Grabs the value of your attack
+        let moveKey = `${pokemonSelect.value}`
+        let move = moveSet[moveKey]
+        let damage = null
+        for (moves in move) {
+            if (moves === moveSelect.value) {
+                damage = move[moves]
+                // ends our loop
+                break 
+            }
+        }
+        // prints out our tester data 
+        //- maybe update this so it shows up on website
+        console.log(`${moveKey} used ${moveSelect.value}!`)
+        console.log(`This did ${damage} damage!`)
+        // displays and adjusts shinx health
+        shinx.hp -= damage
+        shinxHealth.innerHTML = shinx.hp
+    }
+    // lets us know who won and why (remember that shinx technically attacks first)
+    console.log(`left loop with pokeHP: ${pokeHealth} and shinxHP: ${shinx.hp}`)
+    if (0 >= pokeHealth) {
+        console.log("Shinx won!")
+    } else {
+        console.log("You won!")
+    }
+}
